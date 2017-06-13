@@ -1,4 +1,5 @@
-### SPENCER Multi-Modal People Detection & Tracking Framework
+### SPENCER Multi-Modal People Detection & Tracking Framework &nbsp;&nbsp;&nbsp;[![Build Status](https://lcas.lincoln.ac.uk/buildfarm/buildStatus/icon?job=Kbin_uX64__spencer_people_tracking_full__ubuntu_xenial_amd64__binary)](https://lcas.lincoln.ac.uk/buildfarm/job/Kbin_uX64__spencer_people_tracking_full__ubuntu_xenial_amd64__binary)
+
 ###### Multi-modal ROS-based people and group detection & tracking framework for mobile robots developed within the context of the EU FP7 project [SPENCER](http://www.spencer.eu).
 
 ![Tracked persons projected into the front RGB-D camera](/../screenshots/screenshots/full-system-3-front-cam-edited.png?raw=true "Tracked persons projected into the front RGB-D camera")
@@ -128,7 +129,15 @@ On the SPENCER robot platform, which is equipped with front and rear RGB-D senso
 
 With this configuration, the components run in real-time at 20-25 Hz (with visualization off-loaded to a separate computer), even in crowded environments where more than 30 persons are concurrently visible.
 
-#### Installation
+#### Installation from L-CAS package repository
+
+A packaged version of the entire framework for *ROS Kinetic* on *Ubuntu 16.04 (Xenial)* is kindly provided by the Lincoln Research Centre for Autonomous Systems (L-CAS) and built by their continuous integration system. You must first add their package repository to your apt/sources.list [as described here](https://github.com/LCAS/rosdistro/wiki#using-the-l-cas-repository-if-you-just-want-to-use-our-software). Then, install the framework via
+
+    sudo apt-get install ros-kinetic-spencer-people-tracking-full
+    
+Note that the `groundHOG` detector in the packaged version is non-functional.
+
+#### Installation from source
 
 The people and group detection and tracking framework has been tested on Ubuntu 14.04 / ROS Indigo and Ubuntu 16.04 / ROS Kinetic. For more information on the Robot Operating System (ROS), please refer to [ros.org](http://www.ros.org/).
 
@@ -264,9 +273,10 @@ The software in this repository is maintained by:
 - [Timm Linder](http://www.timmlinder.com), Social Robotics Lab, Albert-Ludwigs-Universität Freiburg
 - [Stefan Breuers](http://www.vision.rwth-aachen.de/people/stefan-breuers), Computer Vision Group, RWTH Aachen University
 
-Credits of the different ROS packages go to the particular authors listed in the respective `README.md` and `package.xml` files.
+Credits of the different ROS packages go to the particular authors listed in the respective `README.md` and `package.xml` files. See also the `AUTHORS.md` file for a list of further contributors.
 
-This work has been supported by the EC under contract number FP7-ICT-600877 (SPENCER).
+This work has been supported by the European Commission under contract number FP7-ICT-600877 (SPENCER), and has received additional funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 732737 (ILIAD).
+
 If you use the software contained in this repository for your research, please cite the following publication:
 
 > On Multi-Modal People Tracking from Mobile Platforms in Very Crowded and Dynamic Environments    
