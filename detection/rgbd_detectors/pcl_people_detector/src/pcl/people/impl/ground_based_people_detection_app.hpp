@@ -221,7 +221,7 @@ pcl::people::GroundBasedPeopleDetectionApp<PointT>::extractRGBFromPointCloud (Po
   for (int x = 0; x < input_cloud->width; x++)
   {
     for (int y = 0; y < input_cloud->height; y++)
-    { 
+    {
       rgb_image_cv.at<cv::Vec3f>(y, x)[0] = (*input_cloud)(x, y).b / 255.0f; // OpenCV uses BGR format
       rgb_image_cv.at<cv::Vec3f>(y, x)[1] = (*input_cloud)(x, y).g / 255.0f;
       rgb_image_cv.at<cv::Vec3f>(y, x)[2] = (*input_cloud)(x, y).r / 255.0f;
@@ -242,7 +242,7 @@ pcl::people::GroundBasedPeopleDetectionApp<PointT>::rotateRgbImage(Eigen::Rotati
     actualUpVectorInCameraFrame3d /= actualUpVectorInCameraFrame3d(2);
 
     actualUpVectorInCameraFrame = actualUpVectorInCameraFrame3d.head(2).normalized();
-    desiredUpVectorInCameraFrame << 0, 1;
+    desiredUpVectorInCameraFrame << 0, -1;
 
     float rotationAngle = std::atan2(actualUpVectorInCameraFrame.y(), actualUpVectorInCameraFrame.x()) - atan2(desiredUpVectorInCameraFrame.y(), desiredUpVectorInCameraFrame.x());
     rotationAngle *= 180.0f / M_PI;
@@ -415,7 +415,7 @@ pcl::people::GroundBasedPeopleDetectionApp<PointT>::compute (std::vector<pcl::pe
       cv::imshow("RGB image visualization", rgb_image_cv_visualization_);
       cv::waitKey(1);
   }
- 
+
   return (true);
 }
 
