@@ -6,11 +6,11 @@
     <arg name="fuse_detections" default="true"/>
     <arg name="static_map_filter" default="true"/>
     <arg name="rgbd" default="false"/>
-    <arg name="laser_low_confidence_detections" default="true"/>
-    
+    <arg name="laser_low_confidence_detections" default="false"/>
+
     <arg name="tracker" default="true"/>
     <arg name="occlusion_geodesics" default="false"/>
-    
+
     <!-- Detection-to-detection fusion pipeline. NOTE: Detectors need to be launched separately via
          roslaunch spencer_people_tracking_launch front_rgbd_detectors.launch
          roslaunch spencer_people_tracking_launch rear_rgbd_detectors.launch
@@ -50,7 +50,7 @@
         <include file="$(find srl_nearest_neighbor_tracker)/launch/nnt.launch">
             <arg name="subscriber_queue_size" value="$(arg subscriber_queue_size)"/>
             <arg name="use_imm" value="true"/>
-            
+
             <arg name="occlusion_param_file" value="occlusion_geodesics_manager_dynamic.yaml" if="$(arg occlusion_geodesics)"/> <!-- NOTE: Only uses front laser!!! -->
             <arg name="use_laser_shade_occlusion_manager" value="true" if="$(arg occlusion_geodesics)"/>
         </include>

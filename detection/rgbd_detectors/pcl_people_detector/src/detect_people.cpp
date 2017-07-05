@@ -39,7 +39,7 @@
  * Tracking people within groups with RGB-D data,
  * In Proceedings of the International Conference on Intelligent Robots and Systems (IROS) 2012, Vilamoura (Portugal), 2012.
  */
-  
+
 #include <Eigen/Geometry>
 
 #include <pcl/common/transforms.h>
@@ -483,7 +483,7 @@ int main (int argc, char** argv)
   }
   ROS_INFO_STREAM("GPU acceleration is " << (gpu_classifier ? "enabled" : "disabled"));
 
-  
+
   // Image source is used to publish ROIs. Our ROIs are based upon a rotated image (due to sensor orientation),
   // so we cannot use the original RGB image as source
   // We assume that a separate, stand-alone node will publish the rotated image on this topic.
@@ -520,7 +520,7 @@ int main (int argc, char** argv)
   ros::Subscriber pointCloudSubscriber = nodeHandle.subscribe(input_cloud_topic, queueSize, &pointCloudCallback);
   ros::Subscriber cameraInfoSubscriber = nodeHandle.subscribe(camera_info_topic, 1, &cameraInfoCallback);
 
-  // Create classifier for people detection:  
+  // Create classifier for people detection:
   pcl::people::PersonClassifier<pcl::RGB> person_classifier;
   if(gpu_classifier) {
       person_classifier.useOpenCVGpuClassifier(); // will automatically load default weights provided by OpenCV
