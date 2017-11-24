@@ -435,7 +435,7 @@ int main (int argc, char** argv)
 
   // Parameters
   string svm_filename = ros::package::getPath(ROS_PACKAGE_NAME) + "/parameters/trainedLinearSVMForPeopleDetectionWithHOG.yaml";
-  g_minConfidence = -1.6;
+  g_minConfidence = -2.5;
   double min_height = 1.2;
   double max_height = 2.0;
   double voxel_size = 0.06, groundplane_height = 0.4;
